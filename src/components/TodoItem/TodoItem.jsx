@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { observer } from 'mobx-react';
 
 const Wrapper = styled.div`
   display: flex;
@@ -27,11 +28,10 @@ const Checkbox = styled.span`
   border: 1px solid #eee;
   border-radius: 5px;
 `;
-
-export default class TodoItem extends Component {
+@observer
+class TodoItem extends Component {
   render() {
     const { id, title, completed, toggleCompleted } = this.props;
-    // const { title } = this.props;
 
     return (
       <Wrapper>
@@ -48,3 +48,5 @@ export default class TodoItem extends Component {
     );
   }
 }
+
+export default TodoItem;

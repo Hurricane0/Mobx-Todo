@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { toJS } from 'mobx';
 import styled from 'styled-components';
+import { observer } from 'mobx-react';
 import TodoItem from '../TodoItem/TodoItem';
 
 const Wrapper = styled.div`
@@ -11,18 +12,28 @@ const Wrapper = styled.div`
   border-radius: 8px;
   margin-top: 100px;
 `;
-
-export default class TodoList extends Component {
+@observer
+class TodoList extends Component {
   render() {
     // eslint-disable-next-line react/destructuring-assignment
     const { todos } = toJS(this.props.store);
+    // eslint-disable-next-line react/destructuring-assignment
+    const { toggleCompleted } = this.props.store;
 
     return (
       <Wrapper>
         {todos.map(({ id, title, completed }) => (
-          <TodoItem key={id} id={id} title={title} completed={completed} />
+          <TodoItem
+            key={id}
+            id={id}
+            title={title}
+            completed={completed}
+            toggleCompleted={toggleCompleted}
+          />
         ))}
       </Wrapper>
     );
   }
 }
+
+export default TodoList;

@@ -10,13 +10,13 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 100vw;
 `;
+
 @observer
 class App extends React.Component {
   render() {
-    const store = todoState;
     return (
       <Wrapper>
-        <TodoList store={store} />
+        <TodoList store={todoState} />
       </Wrapper>
     );
   }
