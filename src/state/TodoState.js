@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import { observable, computed, action } from 'mobx';
 
 class TodoState {

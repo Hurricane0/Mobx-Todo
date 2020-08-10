@@ -3,6 +3,7 @@ import { toJS } from 'mobx';
 import styled from 'styled-components';
 import { observer } from 'mobx-react';
 import TodoItem from '../TodoItem/TodoItem';
+import AddTodo from '../AddTodo/AddTodo';
 
 const Wrapper = styled.div`
   max-width: 600px;
@@ -22,6 +23,7 @@ class TodoList extends Component {
 
     return (
       <Wrapper>
+        <AddTodo />
         {todos.map(({ id, title, completed }) => (
           <TodoItem
             key={id}
