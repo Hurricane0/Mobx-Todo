@@ -31,17 +31,19 @@ const Checkbox = styled.span`
 @observer
 class TodoItem extends Component {
   render() {
-    const { id, title, completed, toggleCompleted } = this.props;
+    const { id, title, completed, completeTodo, removeTodo } = this.props;
 
     return (
       <Wrapper>
-        <Title completed>{title}</Title>
+        <Title completed={completed}>{title}</Title>
 
-        <div onClick={() => toggleCompleted(id)}>
+        <div>
           {completed ? (
-            <i className="fa fa-window-close" aria-hidden="true" />
+            <span onClick={() => removeTodo(id)}>
+              <i className="fa fa-window-close" aria-hidden="true" />
+            </span>
           ) : (
-            <Checkbox />
+            <Checkbox onClick={() => completeTodo(id)} />
           )}
         </div>
       </Wrapper>

@@ -19,18 +19,19 @@ class TodoList extends Component {
     // eslint-disable-next-line react/destructuring-assignment
     const { todos } = toJS(this.props.store);
     // eslint-disable-next-line react/destructuring-assignment
-    const { toggleCompleted } = this.props.store;
+    const { completeTodo, addTodo, removeTodo } = this.props.store;
 
     return (
       <Wrapper>
-        <AddTodo />
+        <AddTodo addTodo={addTodo} />
         {todos.map(({ id, title, completed }) => (
           <TodoItem
             key={id}
             id={id}
             title={title}
             completed={completed}
-            toggleCompleted={toggleCompleted}
+            completeTodo={completeTodo}
+            removeTodo={removeTodo}
           />
         ))}
       </Wrapper>

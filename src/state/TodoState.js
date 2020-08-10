@@ -2,7 +2,7 @@
 import { observable, computed, action } from 'mobx';
 
 class TodoState {
-  @observable todos = [{ id: 1, title: 'Test Todo', completed: false }];
+  @observable todos = [{ id: 1, title: 'Test Todo', completed: true }];
 
   @computed get info() {
     return this.todos;
@@ -13,7 +13,7 @@ class TodoState {
   };
 
   @action removeTodo = (id) => {
-    this.todos.filter((todo) => todo.id !== id);
+    this.todos = this.todos.filter((todo) => todo.id !== id);
   };
 
   @action completeTodo = (id) => {
